@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		862E37702065BF3600532569 /* EPModalStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 862E376E2065BF3600532569 /* EPModalStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		862E37792065C1AB00532569 /* EPModalStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862E37782065C1AB00532569 /* EPModalStatusView.swift */; };
+		862E377B2065C1E000532569 /* EPModalStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 862E377A2065C1E000532569 /* EPModalStatusView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		862E376B2065BF3600532569 /* EPModalStatus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EPModalStatus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		862E376E2065BF3600532569 /* EPModalStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPModalStatus.h; sourceTree = "<group>"; };
 		862E376F2065BF3600532569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		862E37782065C1AB00532569 /* EPModalStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPModalStatusView.swift; sourceTree = "<group>"; };
+		862E377A2065C1E000532569 /* EPModalStatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EPModalStatusView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,8 @@
 			isa = PBXGroup;
 			children = (
 				862E376E2065BF3600532569 /* EPModalStatus.h */,
+				862E37782065C1AB00532569 /* EPModalStatusView.swift */,
+				862E377A2065C1E000532569 /* EPModalStatusView.xib */,
 				862E376F2065BF3600532569 /* Info.plist */,
 			);
 			path = EPModalStatus;
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				862E377B2065C1E000532569 /* EPModalStatusView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				862E37792065C1AB00532569 /* EPModalStatusView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
