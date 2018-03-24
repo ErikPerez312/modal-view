@@ -15,15 +15,52 @@ public class EPModalStatusView: UIView {
     
     let nibName = "EPModalStatusView"
     var contentView: UIView!
+    var timer: Timer?
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
     }
     
+    public override func didMoveToSuperview() {
+        // Fade in when added to superview
+        // Then add a timer to remove the view
+        contentView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        UIView.animate(withDuration: 0.15,
+                       animations: {
+            self.contentView.alpha = 1.0
+            self.contentView.transform = CGAffineTransform.identity
+        }) { _ in
+            self.timer = Timer.scheduledTimer(timeInterval: TimeInterval(3.0),
+                                              target: self,
+                                              selector: #selector(self.removeSelf),
+                                              userInfo: nil,
+                                              repeats: false)
+        }
+//        UIView.animate(withDuration: 0.15, animations: {
+//            self.contentView.alpha = 1.0
+//            self.contentView.transform = CGAffineTransform.identity
+//        }) { _ in
+//            self.timer = Timer.scheduledTimer(
+//                timeInterval: TimeInterval(3.0),
+//                target: self,
+//                selector: #selector(self.removeSelf),
+//                userInfo: nil,
+//                repeats: false)
+//        }
+    }
+    
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setUpView()
+    }
+    
+    public override func layoutSubviews() {
+        // round corner
+        self.layoutIfNeeded()
+        contentView.layer.masksToBounds = true
+        contentView.clipsToBounds = true
+        contentView.layer.cornerRadius = 10
     }
     
     public func set(image:  UIImage) {
@@ -50,17 +87,20 @@ public class EPModalStatusView: UIView {
         contentView.center = self.center
         contentView.autoresizingMask = []
         contentView.translatesAutoresizingMaskIntoConstraints = true
-        
+        contentView.alpha = 0.0
         headlineLabel.text = ""
         subheadLabel.text = ""
+        
     }
     
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @objc private func removeSelf() {
+        // Animate removal of view
+        UIView.animate(withDuration: 0.15,
+                       animations: {
+                        self.contentView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                        self.contentView.alpha = 0.0
+        }) { _ in
+            self.removeFromSuperview()
+        }
     }
-    */
-
 }
